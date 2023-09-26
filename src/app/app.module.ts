@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,4 +20,3 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
->>>>>>> Stashed changes
