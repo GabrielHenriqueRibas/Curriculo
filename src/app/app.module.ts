@@ -24,4 +24,3 @@ import { LoginFormularioComponent } from './login-formulario/login-formulario.co
   bootstrap: [AppComponent]
 })
 export class AppModule { }
->>>>>>> Stashed changes

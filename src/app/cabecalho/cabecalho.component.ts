@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 
   
-  //Uso Property Binding-> armazenar valor da URL para usar la em cabecalho.component.html
-  //Uso Interpolation -> armazenar valores das strings para usar em 
+//Uso Property Binding-> armazenar valor da URL para usar la em cabecalho.component.html
+//Uso Interpolation -> armazenar valores das strings para usar em cabecalho.component.html
 export class CabecalhoComponent {
   imageUrl = "../../assets/img/logo.png";
   modelo = "MODELO";
