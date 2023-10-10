@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { LoginFormularioComponent } from './login-formulario.component';
+
+describe('LoginFormularioComponent', () => {
+  let component: LoginFormularioComponent;
+  let fixture: ComponentFixture<LoginFormularioComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LoginFormularioComponent]
+    });
+    fixture = TestBed.createComponent(LoginFormularioComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
