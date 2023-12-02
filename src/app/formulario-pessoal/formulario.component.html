@@ -1,0 +1,116 @@
+<app-cabecalho-formulario [texto]="'Dados Pessoais'" [linkPessoal]="'ATIVOS/pessoal.png'" [pessoal]="'pessoal'" [linkExperiencia]="'INATIVO/experiencia.png'" [experiencia]="'experiencia'" [linkFormacao]="'INATIVO/formacao.png'" [formacao]="'formacao'"></app-cabecalho-formulario>
+
+<form class="mx-10" [formGroup]="formulario">    
+
+    <div class="mb-4 mt-10">
+        <label for="nome" class="text-blue-950 font-bold ">*Nome:</label>
+        <input type="text" id = "nome" formControlName = "nome" class="border border-blue-950 p-2 w-full rouded">
+
+        <div class= "text-red-600" *ngIf="formulario.get('nome')?.hasError('required') && (formulario.get('nome')?.dirty || formulario.get('nome')?.touched)">
+            Nome é obrigatório.
+        </div>
+        <div class= "text-red-600" *ngIf="formulario.get('nome')?.hasError('minlength') && (formulario.get('nome')?.dirty || formulario.get('nome')?.touched)">
+            Nome deve ter no mínimo 3 caracteres.
+        </div>
+    </div>
+
+
+    <div class="flex">
+        <div class="mb-4">
+            <label for="estadoCivil" class="text-blue-950 font-bold ">Estado Civil:</label>
+            <select type="text" id="estadoCivil" formControlName="estadoCivil" class="border border-blue-950 p-2 w-full">
+                <option value="solteiro">Solteiro</option>
+                <option value="casado">Casado</option>
+                <option value="divorciado">Divorciado</option>
+            </select>
+        </div>
+        <div class="mb-4 ml-28">
+            <label for="dataNascimento" class="text-blue-950 font-bold ">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" formControlName="dataNascimento" class="border border-blue-950 p-2 w-full">
+        </div>
+    </div>
+    <!--
+    <div class="mb-4">
+        <label for="email" class="text-blue-950 font-bold ">Email:</label>
+        <input type="email" id="email" name="email" class="border border-blue-950 p-2 w-full">                    
+    </div>
+
+    <div class="mb-4">
+        <label for="telefone" class="text-blue-950 font-bold ">Número de Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" class="border border-blue-950 p-2 w-full">
+    </div>
+
+    <div class="mt-14 mb-10 text-center">
+        <hr class=" border-blue-950">
+        <h1 class="text-5xl text-blue-950 mt-4">Endereço</h1>
+    </div>
+
+    <div class="mb-4">
+        <label for="cep" class="text-blue-950 font-bold ">CEP:</label>
+        <input type="text" id="cep" name="cep" class="border border-blue-950 p-2 w-full">
+    </div>
+
+    <div class="mb-4">
+        <label for="cidade" class="text-blue-950 font-bold ">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" class="border border-blue-950 p-2 w-full">
+    </div>
+
+    <div class="mb-4">
+        <label for="bairro" class="text-blue-950 font-bold ">Bairro:</label>
+        <input type="text" id="bairro" name="bairro" class="border border-blue-950 p-2 w-full">
+    </div>
+
+    <div class="mb-4">
+        <label for="rua" class="text-blue-950 font-bold ">Rua:</label>
+        <input type="text" id="rua" name="rua" class="border border-blue-950 p-2 w-full">
+    </div>
+
+    <div class="mb-4">
+        <label for="numero" class="text-blue-950 font-bold ">Número:</label>
+        <input type="text" id="numero" name="numero" class="border border-blue-950 p-2 w-full">
+    </div>
+
+    <div class="mt-14 mb-10 text-center">
+        <hr class=" border-blue-950">
+        <h1 class="text-5xl text-blue-950 mt-4">Formação</h1>
+    </div>
+
+    <div class="mb-4">
+        <label for="situacaoEscolar" class="text-blue-950 font-bold ">Situação Escolar:</label>
+        <select id="situacaoEscolar" name="situacaoEscolar" class="border border-blue-950 p-2 w-full">
+            <option value="fundamental incompleto">Ensino Fundamental Incompleto</option>
+            <option value="fundamental completo">Ensino Fundamental Completo</option>
+            <option value="medio incompleto">Ensino Medio Incompleto</option>
+            <option value="medio completo">Ensino Medio Completo</option>
+            <option value="superior incompleto">Ensino Superior Incompleto</option>
+            <option value="superior completo">Ensino Superior Completo</option>
+        </select>
+    </div>
+
+    <div class="mb-4">
+        <label for="nomeInstituicao" class="text-blue-950 font-bold ">Nome da Instituição:</label>
+        <input type="text" id="nomeInstituicao" name="nomeInstituicao" class="border border-blue-950 p-2 w-full">
+    </div>
+
+    <div class="flex">
+        <div class="mb-4 mr-4">
+            <label for="dataInicio" class="text-blue-950 font-bold ">Data de Início:</label>
+            <input type="date" id="dataInicio" name="dataInicio" class="block border border-blue-950 p-2 w-32">
+        </div>
+    
+        <div class="mb-4 ml-10">
+            <label for="dataConclusao" class="text-blue-950 font-bold">Data de Conclusão:</label>
+            <input type="date" id="dataConclusao" name="dataConclusao" class="block border border-blue-950 p-2 w-32">
+        </div>
+    </div>
+    -->
+    <a routerLink="/login-formulario" 
+       class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+       [class.disabled]="formulario.invalid"
+       [ngStyle]="{'background-color': formulario.invalid ? 'gray' : 'orange'}"
+       (click)="formulario.valid && enviarFormulario()">
+        Enviar
+    </a>
+
+</form>
+
