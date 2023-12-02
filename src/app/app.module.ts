@@ -9,6 +9,12 @@ import { LoginFormularioComponent } from './login-formulario/login-formulario.co
 import { CadastroFormularioComponent } from './cadastro-formulario/cadastro-formulario.component';
 import { CorpoInicialComponent } from './corpo-inicial/corpo-inicial.component';
 import { BotaoLogarComponent } from './botao-logar/botao-logar.component';
+import { FormularioComponent } from './formulario-pessoal/formulario.component';
+import { FormularioExperienciaComponent } from './formulario-experiencia/formulario-experiencia.component';
+import { FormularioTemaComponent } from './formulario-tema/formulario-tema.component';
+import { CabecalhoFormularioComponent } from './cabecalho-formulario/cabecalho-formulario.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 //Mapear componentes à rotas no módulo de rotas.
@@ -20,9 +26,15 @@ import { BotaoLogarComponent } from './botao-logar/botao-logar.component';
     LoginFormularioComponent,
     CadastroFormularioComponent,
     CorpoInicialComponent,
-    BotaoLogarComponent
+    BotaoLogarComponent,
+    FormularioComponent,
+    FormularioExperienciaComponent,
+    FormularioTemaComponent,
+    CabecalhoFormularioComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],

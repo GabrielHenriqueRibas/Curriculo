@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { LoginFormularioComponent } from './login-formulario/login-formulario.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { CorpoInicialComponent } from './corpo-inicial/corpo-inicial.component';
 
 const routes: Routes = [
-  { path: 'cabecalho', component: CabecalhoComponent },
   { path: 'login-formulario', component: LoginFormularioComponent },
-  { path: 'rodape', component: RodapeComponent}
+  { path: 'inicio', component: CorpoInicialComponent },
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
 ];
 
 @NgModule({
