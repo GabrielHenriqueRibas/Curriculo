@@ -13,8 +13,10 @@ import { FormularioComponent } from './formulario-pessoal/formulario.component';
 import { FormularioExperienciaComponent } from './formulario-experiencia/formulario-experiencia.component';
 import { FormularioTemaComponent } from './formulario-tema/formulario-tema.component';
 import { CabecalhoFormularioComponent } from './cabecalho-formulario/cabecalho-formulario.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrarFormularioComponent } from './registrar-formulario/registrar-formulario.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 //Mapear componentes à rotas no módulo de rotas.
@@ -30,9 +32,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormularioComponent,
     FormularioExperienciaComponent,
     FormularioTemaComponent,
-    CabecalhoFormularioComponent
+    CabecalhoFormularioComponent,
+    RegistrarFormularioComponent
   ],
   imports: [
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
