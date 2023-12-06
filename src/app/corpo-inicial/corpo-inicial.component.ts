@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./corpo-inicial.component.css']
 })
 export class CorpoInicialComponent {
-
 }
