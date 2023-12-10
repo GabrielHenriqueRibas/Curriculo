@@ -14,36 +14,44 @@ import { DatePipe } from '@angular/common';
 export class FormularioPessoalComponent {
   formulario: FormGroup;
   entidade: any
+  private formBuilder: FormBuilder
+  private localStorageService: LocalStorageService
+  private http: HttpClient
+  private datePipe: DatePipe
 
-  constructor( private formBuilder: FormBuilder, private localStorageService: LocalStorageService, private http: HttpClient, private datePipe: DatePipe ) {
-      this.formulario = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3)]],
-      estadoCivil : ['', [Validators.required]],
-      dataNascimento: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      telefone: ['', [Validators.required]],
-      cep: ['', [Validators.required]],
-      cidade: ['', [Validators.required]],
-      bairro: ['', [Validators.required]],
-      rua: ['', [Validators.required]],
-      numero: ['', [Validators.required]],
-      situacaoEscolar: ['', [Validators.required]],
-      nomeInstituicao: ['', [Validators.required]],
-      dataInicio: ['', [Validators.required]],
-      dataConclusao: ['', [Validators.required]],
-      })
-      this.formulario.get('cep')?.valueChanges
-      .pipe(
-        debounceTime(300),
-        switchMap(cep => this.buscarCep(cep))
-      )
-      .subscribe(response => {
-        this.formulario.patchValue({
-          cidade: response.localidade,
-          bairro: response.bairro,
-          rua: response.logradouro,
-        });
+  constructor(formBuilder: FormBuilder, localStorageService: LocalStorageService, http: HttpClient, datePipe: DatePipe ) {
+    this.formBuilder = formBuilder;
+    this.localStorageService = localStorageService;
+    this.http = http;
+    this.datePipe = datePipe;
+    
+    this.formulario = this.formBuilder.group({
+    nome: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]{3,}$/)]],
+    estadoCivil : ['', [Validators.required]],
+    dataNascimento: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    telefone: ['', [Validators.required]],
+    cep: ['', [Validators.required]],
+    cidade: ['', [Validators.required]],
+    bairro: ['', [Validators.required]],
+    rua: ['', [Validators.required]],
+    numero: ['', [Validators.required]],
+    situacaoEscolar: ['', [Validators.required]],
+    nomeInstituicao: ['', [Validators.required]],
+    dataInicio: ['', [Validators.required]],
+    dataConclusao: ['', [Validators.required]],
+    })
+    
+    this.formulario.get('cep')?.valueChanges.pipe(
+      debounceTime(300),
+      switchMap(cep => this.buscarCep(cep))
+    ).subscribe(response => {
+      this.formulario.patchValue({
+        cidade: response.localidade,
+        bairro: response.bairro,
+        rua: response.logradouro,
       });
+    });
   }
 
   get cep() {

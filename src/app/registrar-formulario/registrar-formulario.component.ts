@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrarFormularioComponent {
   email: string = '';
-  password: string = '';
+  senha: string = '';
   private emailValidationService: EmailValidationService;
   private userService: UserService;
   private router: Router
@@ -20,16 +20,22 @@ export class RegistrarFormularioComponent {
     this.router = router;
   }
 
+  addUser(): void {
+    let novoUsuario = { email: this.email, senha: this.senha };
+    this.userService.addUser(novoUsuario).subscribe(() => {
+      this.router.navigate(['/login']);
+    });
+  }
+  
   async validacao() {
     const validationResponse = await this.emailValidationService.validacaoEmail(this.email);
-
+  
     if (validationResponse.is_valid_format.text == 'TRUE') {
       alert('E-mail válido. Continuando com o cadastro do usuário.');
-      const newUser = { email: this.email, password: this.password };
-      await this.userService.addUser(newUser);
-      this.router.navigate(['/login'])
+      this.addUser();
     } else {
       alert('E-mail inválido. Não foi possível cadastrar o usuário.');
     }
   }
+  
 }
