@@ -27,15 +27,17 @@ export class RegistrarFormularioComponent {
     });
   }
   
-  async validacao() {
-    const validationResponse = await this.emailValidationService.validacaoEmail(this.email);
+  public validacao() {
+    this.emailValidationService.validacaoEmail(this.email).then((result) => { 
+      if (result.is_valid_format.text == 'TRUE') {
+        alert('E-mail válido. Continuando com o cadastro do usuário.');
+        this.addUser();
+      } else {
+        alert('E-mail inválido. Não foi possível cadastrar o usuário.');
+      }
+    }).catch((error) => {
+      console.error(error);
+    })
   
-    if (validationResponse.is_valid_format.text == 'TRUE') {
-      alert('E-mail válido. Continuando com o cadastro do usuário.');
-      this.addUser();
-    } else {
-      alert('E-mail inválido. Não foi possível cadastrar o usuário.');
-    }
   }
-  
 }

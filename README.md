@@ -40,10 +40,10 @@ formulario-pessoal.ts/.html
 formulario-pessoal.ts
 [X]Desabilitar o botão de envio (submit) enquanto o formulário estiver em um estado inválido.
 
-user-service.ts
+email-validação.ts
 [X]Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Promises.
 
-formulario-pessoal.ts
+registrar.ts
 [X]Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Observables.
  
 [X]Criar o cadastro completo de uma entidade, incluindo operações de criação, leitura, atualização e exclusão (CRUD) utilizando uma API, como o JSON Server.
